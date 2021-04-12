@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/linlaylist"
+    android:background="@color/colorPrimaryDark"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/info_about_app"
+            android:minHeight="200dp"
+            android:text="@string/statistic"
+            android:textSize="30dp"
+            android:textStyle="italic"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:baselineAligned="false">
+
+
+
+                <Button
+                    android:id="@+id/software"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
+                    android:maxHeight="150dp"
+                    android:minHeight="80dp"
+                    android:text="@string/software"
+                    android:background="@color/Col5"/>
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/hardware"
+                    android:id="@+id/hardware"
+                    android:minHeight="80dp"
+                    android:maxHeight="150dp"
+                    android:background="@color/Col3"/>
+
+                <Button
+                    android:id="@+id/genverbs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxHeight="150dp"
+                    android:minHeight="80dp"
+                    android:text="@string/general_verbs"
+                    android:background="@color/Col5"/>
+
+                <Button
+                    android:id="@+id/internet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxHeight="150dp"
+                    android:minHeight="80dp"
+                    android:text="@string/internet"
+                    android:background="@color/Col3"/>
+        </LinearLayout>
+
+
+
+</LinearLayout>
