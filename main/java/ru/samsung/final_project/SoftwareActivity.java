@@ -21,7 +21,8 @@ public class SoftwareActivity extends AppCompatActivity {
         learnsoftware.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(SoftwareActivity.this, LearnSoftwareActivity.class);
+                startActivity(intent);
             }
         });
 
