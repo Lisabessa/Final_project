@@ -1,6 +1,9 @@
-# Final_project
+# Final_project (Итоговый проект)
+
+Elizaveta Plavinskaya (Елизавета Плавинская)
+
 Samsung IT school
 
 The application for learning English for people who work or study in the field of IT
 
-Приложение по изучению английского языка для тех, кто работает или учится в сфере IT
+(Приложение по изучению английского языка для тех, кто работает или учится в сфере IT)
