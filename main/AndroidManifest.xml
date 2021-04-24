@@ -10,11 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".LearnSoftwareActivity"
+            android:name=".TestSoftwareActivity"
             android:screenOrientation="portrait"></activity>
         <activity
+            android:name=".LearnSoftwareActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".InternetActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".GenVerbsActivity"
             android:screenOrientation="portrait" />

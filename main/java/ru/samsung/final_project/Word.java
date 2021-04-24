@@ -1,6 +1,8 @@
 package ru.samsung.final_project;
 
-public class Word {
+import java.io.Serializable;
+
+public class Word implements Comparable<Word>, Serializable{
     private String name;
     private String transcription;
     private String translation;
@@ -33,5 +35,10 @@ public class Word {
 
     public void setTranslation(String translation) {
         this.translation = translation;
+    }
+
+    @Override
+    public int compareTo(Word o) {
+        return o.getName().compareTo(this.name);
     }
 }

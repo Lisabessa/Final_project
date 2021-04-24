@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:id="@+id/linlaylist"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/ColMAIN"
     xmlns:android="http://schemas.android.com/apk/res/android" >
 
 
@@ -21,9 +21,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:baselineAligned="false">
-
-
+            android:baselineAligned="false"
+            >
 
                 <Button
                     android:id="@+id/software"
@@ -31,7 +30,9 @@
                     android:layout_height="0dp"
                     android:layout_weight="2"
                     android:maxHeight="150dp"
-                    android:minHeight="80dp"
+
+                    android:stateListAnimator="@null"
+                    android:translationZ="4dp"
                     android:text="@string/software"
                     android:background="@color/Col5"/>
                 <Button
@@ -39,16 +40,17 @@
                     android:layout_height="wrap_content"
                     android:text="@string/hardware"
                     android:id="@+id/hardware"
-                    android:minHeight="80dp"
-                    android:maxHeight="150dp"
+
                     android:background="@color/Col3"/>
 
                 <Button
                     android:id="@+id/genverbs"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:maxHeight="150dp"
-                    android:minHeight="80dp"
+
+                    android:elevation="6dp"
+                    android:stateListAnimator="@null"
+                    android:translationZ="4dp"
                     android:text="@string/general_verbs"
                     android:background="@color/Col5"/>
 
@@ -56,8 +58,7 @@
                     android:id="@+id/internet"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:maxHeight="150dp"
-                    android:minHeight="80dp"
+
                     android:text="@string/internet"
                     android:background="@color/Col3"/>
         </LinearLayout>

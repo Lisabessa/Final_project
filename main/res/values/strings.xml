@@ -11,5 +11,7 @@
     <string name="learn">Учить</string>
     <string name="test">Тест</string>
     <string name="software_analize">Ваши результаты:</string>
+    <string name="StartInstruction">Данное приложение разработано для книжной ориентации вашего телефона. Для изучения расположите своё устройство вертикально.</string>
+    <string name="QuestionNumber">\"Вопрос № \"</string>
 
 </resources>

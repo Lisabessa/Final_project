@@ -2,40 +2,175 @@ package ru.samsung.final_project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
-public class LearnSoftwareActivity extends AppCompatActivity {
+import static ru.samsung.final_project.R.string.QuestionNumber;
+import static ru.samsung.final_project.R.string.start;
 
-    ListView listSoftware;
+public class TestSoftwareActivity extends AppCompatActivity {
+
+    private int Points = 0;
+    Random random = new Random();
+
+    Button btn1, btn2, btn3, btn4;
+    TextView num, question, wordQuestion;
+
     private List<Word> words = new ArrayList<>();
+    private List<Word> mistakes = new ArrayList<>();
+
+    int currentNum = -1; // Номер текущего слова из списка, с которым в данный момент происходит работа.
+    UsingInfo spisok = new UsingInfo();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_learn_software);
+        setContentView(R.layout.activity_test_software);
+        btn1 = findViewById(R.id.answer1Software);
+        btn2 = findViewById(R.id.answer2Software);
+        btn3 = findViewById(R.id.answer3Software);
+        btn4 = findViewById(R.id.answer4Software);
+        num = findViewById(R.id.numOfQuestionSoftware);
+        question = findViewById(R.id.questionSoftware);
+        wordQuestion = findViewById(R.id.wordForQuestionSoftware);
         setInitData();
-        listSoftware = findViewById(R.id.listSoftware);
-        WordAdapter wordAdapter = new WordAdapter(this, R.layout.list_item, words);
-        listSoftware.setAdapter(wordAdapter);
+        Change();
 
-        listSoftware.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        btn1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Word selectedWord = (Word)parent.getItemAtPosition(position);
-                Toast.makeText(getApplicationContext(), "Слово: " + selectedWord.getName(), Toast.LENGTH_SHORT).show();
+            public void onClick(View v) {
+                if (spisok.CheckButton(1)){
+                    Points++;
+                }
+                else{
+                    mistakes.add(new Word(words.get(currentNum).getName(), words.get(currentNum).getTranscription(), words.get(currentNum).getTranslation()));
+                }
+                Change();
             }
         });
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(spisok.CheckButton(2)){
+                    Points++;//Если правильно ответил
+                }
+                else{ //Если неправильно, то добавляю в список ошибок.
+                    mistakes.add(new Word(words.get(currentNum).getName(), words.get(currentNum).getTranscription(), words.get(currentNum).getTranslation()));
+                }
+                Change();
+            }
+        });
+
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(spisok.CheckButton(3)){
+                    Points++;
+                }
+                else{
+                    mistakes.add(new Word(words.get(currentNum).getName(), words.get(currentNum).getTranscription(), words.get(currentNum).getTranslation()));
+                }
+                Change();
+            }
+        });
+
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (spisok.CheckButton(4)){
+                    Points++;
+                }
+                else{
+                    mistakes.add(new Word(words.get(currentNum).getName(), words.get(currentNum).getTranscription(), words.get(currentNum).getTranslation()));
+                }
+                Change();
+            }
+        });
+
     }
 
-    void setInitData(){
+    private void Change(){ //Метод изменения вопроса.
+        currentNum ++;
+        btn1.setText("");
+        btn2.setText("");
+        btn3.setText("");
+        btn4.setText("");
+        if(currentNum < words.size()){
+            spisok = new UsingInfo();
+
+            num.setText(QuestionNumber);
+            num.append(""+(currentNum +1));
+            wordQuestion.setText(words.get(currentNum).getName());
+            int btn = random.nextInt(4) + 1;
+            spisok.AddWord(currentNum);
+            spisok.AddButton(btn);
+            switch (btn){
+                case 1:
+                    btn1.setText(words.get(currentNum).getTranslation());
+                    break;
+                case 2:
+                    btn2.setText(words.get(currentNum).getTranslation());
+                    break;
+                case 3:
+                    btn3.setText(words.get(currentNum).getTranslation());
+                    break;
+                case 4:
+                    btn4.setText(words.get(currentNum).getTranslation());
+                    break;
+            }
+            spisok.setAnswerButton(btn);
+            for(int i=0; i<4; i++){
+                if(!spisok.getUsingButtons().contains(i+1)){
+                    int numForIncorrect = random.nextInt(words.size());
+                    while(spisok.getUsingWords().contains(numForIncorrect)){
+                        numForIncorrect = random.nextInt(words.size());
+                    }
+                    switch (i+1){
+                        case 1:
+                            btn1.setText(words.get(numForIncorrect).getTranslation());
+                            break;
+                        case 2:
+                            btn2.setText(words.get(numForIncorrect).getTranslation());
+                            break;
+                        case 3:
+                            btn3.setText(words.get(numForIncorrect).getTranslation());
+                            break;
+                        case 4:
+                            btn4.setText(words.get(numForIncorrect).getTranslation());
+                            break;
+                    }
+                    spisok.AddWord(numForIncorrect);
+                    spisok.AddButton(i+1);
+                }
+            }
+
+        }
+
+        else{
+            Toast.makeText(getApplicationContext(), "Подсчёт результата...", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(TestSoftwareActivity.this, SoftwareActivity.class);
+            intent.putExtra("RESULT" ,Points);
+            intent.putExtra("AT_ALL", words.size());
+            intent.putExtra("MISTAKES" , (Serializable) mistakes);
+            startActivity(intent);
+        }
+
+
+    }
+
+    void setInitData(){ // 55 слов
         words.add(new Word("a compiler", "[ɑ kəmˈpaɪlə]", "компилятор"));
         words.add(new Word("a database", "[ɑ ˈdeɪtəbeɪs]", "база данных"));
         words.add(new Word("a debugger", "[ɑ diːˈbʌɡə(r)]", "отладчик"));
@@ -91,9 +226,6 @@ public class LearnSoftwareActivity extends AppCompatActivity {
         words.add(new Word("system software", "[ˈsɪstɪm ˈsɒftweə]", "системное программное обеспечение"));
         words.add(new Word("unit testing", "[ˈjuːnɪt ˈtestɪŋ]", "модульное (блочное, компонентное) тестирование"));
         words.add(new Word("waterfall model", "[ˈwɔːtəfɔːl mɒdl]", "каскадная модель разработки"));
-
-        Collections.sort(words);
-
 
     }
 }

@@ -3,6 +3,7 @@
     android:layout_height="fill_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    android:background="@color/ColMAIN"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <fragment
