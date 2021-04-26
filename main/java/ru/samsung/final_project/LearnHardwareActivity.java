@@ -1,7 +1,5 @@
 package ru.samsung.final_project;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -13,29 +11,28 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-public class LearnSoftwareActivity extends AppCompatActivity {
-
-    ListView listSoftware;
+public class LearnHardwareActivity extends AppCompatActivity {
+    ListView listHardware;
     private List<Word> words = new ArrayList<>();
-    Button exitFromLearnSoftware;
+    Button exitFromLearnHardware;
     EditText searchWord;
     WordAdapter wordAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_learn_software);
+        setContentView(R.layout.activity_learn_hardware);
         setInitData();
-        listSoftware = findViewById(R.id.listSoftware);
+        listHardware = findViewById(R.id.listHardware);
         wordAdapter = new WordAdapter(this, R.layout.list_item, words);
-        //listSoftware.setAdapter(wordAdapter);
-        exitFromLearnSoftware = findViewById(R.id.exitFromLearnSoftware);
-        searchWord = findViewById(R.id.SearchWordSoftware);
-        listSoftware.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        exitFromLearnHardware = findViewById(R.id.exitFromLearnHardware);
+        searchWord = findViewById(R.id.SearchWordHardware);
+        listHardware.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Word selectedWord = (Word)parent.getItemAtPosition(position);
@@ -43,10 +40,10 @@ public class LearnSoftwareActivity extends AppCompatActivity {
             }
         });
 
-        exitFromLearnSoftware.setOnClickListener(new View.OnClickListener() {
+        exitFromLearnHardware.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LearnSoftwareActivity.this, SoftwareActivity.class);
+                Intent intent = new Intent(LearnHardwareActivity.this, HardwareActivity.class);
                 startActivity(intent);
             }
         });
@@ -74,12 +71,12 @@ public class LearnSoftwareActivity extends AppCompatActivity {
 
             }
         });
-        listSoftware.setAdapter(wordAdapter);
+        listHardware.setAdapter(wordAdapter);
     }
 
     void setInitData(){
         WordList wl = new WordList();
-        wl.ForLearnSoftware();
+        wl.ForLearnHardware();
         words = wl.getWordList();
     }
 }

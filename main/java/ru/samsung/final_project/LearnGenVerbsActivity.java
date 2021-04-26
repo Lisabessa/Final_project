@@ -1,7 +1,5 @@
 package ru.samsung.final_project;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -13,29 +11,28 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-public class LearnSoftwareActivity extends AppCompatActivity {
-
-    ListView listSoftware;
+public class LearnGenVerbsActivity extends AppCompatActivity {
+    ListView listGenVerbs;
     private List<Word> words = new ArrayList<>();
-    Button exitFromLearnSoftware;
+    Button exitFromLearnGenVerbs;
     EditText searchWord;
     WordAdapter wordAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_learn_software);
+        setContentView(R.layout.activity_learn_gen_verbs);
         setInitData();
-        listSoftware = findViewById(R.id.listSoftware);
+        listGenVerbs = findViewById(R.id.listGenVerbs);
         wordAdapter = new WordAdapter(this, R.layout.list_item, words);
-        //listSoftware.setAdapter(wordAdapter);
-        exitFromLearnSoftware = findViewById(R.id.exitFromLearnSoftware);
-        searchWord = findViewById(R.id.SearchWordSoftware);
-        listSoftware.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        exitFromLearnGenVerbs = findViewById(R.id.exitFromLearnGenVerbs);
+        searchWord = findViewById(R.id.SearchWordGenVerbs);
+        listGenVerbs.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Word selectedWord = (Word)parent.getItemAtPosition(position);
@@ -43,10 +40,10 @@ public class LearnSoftwareActivity extends AppCompatActivity {
             }
         });
 
-        exitFromLearnSoftware.setOnClickListener(new View.OnClickListener() {
+        exitFromLearnGenVerbs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LearnSoftwareActivity.this, SoftwareActivity.class);
+                Intent intent = new Intent(LearnGenVerbsActivity.this, GenVerbsActivity.class);
                 startActivity(intent);
             }
         });
@@ -74,12 +71,12 @@ public class LearnSoftwareActivity extends AppCompatActivity {
 
             }
         });
-        listSoftware.setAdapter(wordAdapter);
+        listGenVerbs.setAdapter(wordAdapter);
     }
 
     void setInitData(){
         WordList wl = new WordList();
-        wl.ForLearnSoftware();
+        wl.ForLearnGenVerbs();
         words = wl.getWordList();
     }
 }

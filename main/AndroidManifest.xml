@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".TestSoftwareActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LearnSoftwareActivity"
             android:screenOrientation="portrait" />
@@ -37,6 +37,24 @@
         <activity
             android:name=".ListActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".LearnHardwareActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".TestHardwareActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".LearnGenVerbsActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".TestGenVerbsActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".TestInternetActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".LearnInternetActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class SoftwareActivity extends AppCompatActivity {
 
-    Button learnsoftware, testsoftware;
+    Button learnsoftware, testsoftware, backToListOfModuls;
     ListView mistakes;
     TextView tvmistakes, total;
     TextView results;
@@ -35,6 +35,7 @@ public class SoftwareActivity extends AppCompatActivity {
         results = findViewById(R.id.ResSoftware);
         total = findViewById(R.id.TotalSoftware);
         tvmistakes = findViewById(R.id.TextViewMistakesSoftware);
+        backToListOfModuls = findViewById(R.id.exitFromSoftware);
 
 
         Bundle extras = getIntent().getExtras();
@@ -55,17 +56,17 @@ public class SoftwareActivity extends AppCompatActivity {
             Percentage = Double.parseDouble(String.valueOf(Result)) / Double.parseDouble(String.valueOf(General_count)) * 100;
             results.append("(" + Math.round(Percentage)+"%)");
             if(Math.round(Percentage) == 100){
-                total.setBackgroundColor(R.color.Col1); //  ЦВЕТ НЕ УСТАНАВЛИВАЕТСЯ
+                total.setBackgroundResource(R.color.Col1);
                 total.setText("Отлично! Тема полностью усвоена!");
             }
             else {
                 if(Math.round(Percentage) >= 95){
                     total.setText("Хорошая работа! Так держать!");
-                    total.setBackgroundColor(R.color.Col2);
+                    total.setBackgroundResource(R.color.Col2);
                 }
                 else{
                     total.setText("Попробуйте ещё раз!");
-                    total.setBackgroundColor(R.color.Col3);
+                    total.setBackgroundResource(R.color.Col4);
                 }
                 tvmistakes.setText("Слова, которые Вам нужно повторить:");
             }
@@ -88,5 +89,12 @@ public class SoftwareActivity extends AppCompatActivity {
             }
         });
 
+        backToListOfModuls.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SoftwareActivity.this, ListActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

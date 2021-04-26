@@ -34,14 +34,14 @@
                     android:stateListAnimator="@null"
                     android:translationZ="4dp"
                     android:text="@string/software"
-                    android:background="@color/Col5"/>
+                    android:backgroundTint="@color/Col5"/>
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/hardware"
                     android:id="@+id/hardware"
 
-                    android:background="@color/Col3"/>
+                    android:backgroundTint="@color/Col3"/>
 
                 <Button
                     android:id="@+id/genverbs"
@@ -52,7 +52,7 @@
                     android:stateListAnimator="@null"
                     android:translationZ="4dp"
                     android:text="@string/general_verbs"
-                    android:background="@color/Col5"/>
+                    android:backgroundTint="@color/Col5"/>
 
                 <Button
                     android:id="@+id/internet"
@@ -60,7 +60,18 @@
                     android:layout_height="wrap_content"
 
                     android:text="@string/internet"
-                    android:background="@color/Col3"/>
+                    android:backgroundTint="@color/Col3"/>
+
+                <Button
+                    android:id="@+id/exitFromListOfModuls"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:elevation="6dp"
+                    android:stateListAnimator="@null"
+                    android:translationZ="4dp"
+                    android:text="@string/backTo"
+                    android:background="@color/ColMAIN"/>
         </LinearLayout>
 
 

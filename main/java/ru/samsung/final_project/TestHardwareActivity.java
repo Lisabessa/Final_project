@@ -1,28 +1,20 @@
 package ru.samsung.final_project;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
-import static ru.samsung.final_project.R.string.QuestionNumber;
-import static ru.samsung.final_project.R.string.start;
-
-public class TestSoftwareActivity extends AppCompatActivity {
-
-
-    Button btn1, btn2, btn3, btn4, exitFromTestSoftware;
+public class TestHardwareActivity extends AppCompatActivity {
+    Button btn1, btn2, btn3, btn4, exitFromTestHardware;
     TextView num, question, wordQuestion;
 
     private List<Word> words = new ArrayList<>();
@@ -31,22 +23,22 @@ public class TestSoftwareActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test_software);
-        exitFromTestSoftware = findViewById(R.id.exitFromTestSoftware);
-        btn1 = findViewById(R.id.answer1Software);
-        btn2 = findViewById(R.id.answer2Software);
-        btn3 = findViewById(R.id.answer3Software);
-        btn4 = findViewById(R.id.answer4Software);
-        num = findViewById(R.id.numOfQuestionSoftware);
-        question = findViewById(R.id.questionSoftware);
-        wordQuestion = findViewById(R.id.wordForQuestionSoftware);
+        setContentView(R.layout.activity_test_hardware);
+        exitFromTestHardware = findViewById(R.id.exitFromTestHardware);
+        btn1 = findViewById(R.id.answer1Hardware);
+        btn2 = findViewById(R.id.answer2Hardware);
+        btn3 = findViewById(R.id.answer3Hardware);
+        btn4 = findViewById(R.id.answer4Hardware);
+        num = findViewById(R.id.numOfQuestionHardware);
+        question = findViewById(R.id.questionHardware);
+        wordQuestion = findViewById(R.id.wordForQuestionHardware);
         setInitData();
         final Tester tester = new Tester(words, btn1, btn2, btn3, btn4, num, question, wordQuestion);
 
         boolean resOfQuery = tester.Change();
         if (!resOfQuery){
             Toast.makeText(getApplicationContext(), "Подсчёт результата...", Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(TestSoftwareActivity.this, SoftwareActivity.class);
+            Intent intent = new Intent(TestHardwareActivity.this, HardwareActivity.class);
             intent.putExtra("RESULT" ,tester.getPoints());
             intent.putExtra("AT_ALL", tester.getWordsSize());
             intent.putExtra("MISTAKES" , (Serializable)tester.getMistakes());
@@ -60,7 +52,7 @@ public class TestSoftwareActivity extends AppCompatActivity {
                 boolean resOfQuery = tester.Change();
                 if (!resOfQuery){
                     Toast.makeText(getApplicationContext(), "Подсчёт результата...", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(TestSoftwareActivity.this, SoftwareActivity.class);
+                    Intent intent = new Intent(TestHardwareActivity.this, HardwareActivity.class);
                     intent.putExtra("RESULT" ,tester.getPoints());
                     intent.putExtra("AT_ALL", tester.getWordsSize());
                     intent.putExtra("MISTAKES" , (Serializable)tester.getMistakes());
@@ -76,7 +68,7 @@ public class TestSoftwareActivity extends AppCompatActivity {
                 boolean resOfQuery = tester.Change();
                 if (!resOfQuery){
                     Toast.makeText(getApplicationContext(), "Подсчёт результата...", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(TestSoftwareActivity.this, SoftwareActivity.class);
+                    Intent intent = new Intent(TestHardwareActivity.this, HardwareActivity.class);
                     intent.putExtra("RESULT" ,tester.getPoints());
                     intent.putExtra("AT_ALL", tester.getWordsSize());
                     intent.putExtra("MISTAKES" , (Serializable)tester.getMistakes());
@@ -92,7 +84,7 @@ public class TestSoftwareActivity extends AppCompatActivity {
                 boolean resOfQuery = tester.Change();
                 if (!resOfQuery){
                     Toast.makeText(getApplicationContext(), "Подсчёт результата...", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(TestSoftwareActivity.this, SoftwareActivity.class);
+                    Intent intent = new Intent(TestHardwareActivity.this, HardwareActivity.class);
                     intent.putExtra("RESULT" ,tester.getPoints());
                     intent.putExtra("AT_ALL", tester.getWordsSize());
                     intent.putExtra("MISTAKES" , (Serializable)tester.getMistakes());
@@ -108,7 +100,7 @@ public class TestSoftwareActivity extends AppCompatActivity {
                 boolean resOfQuery = tester.Change();
                 if (!resOfQuery){
                     Toast.makeText(getApplicationContext(), "Подсчёт результата...", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(TestSoftwareActivity.this, SoftwareActivity.class);
+                    Intent intent = new Intent(TestHardwareActivity.this, HardwareActivity.class);
                     intent.putExtra("RESULT" ,tester.getPoints());
                     intent.putExtra("AT_ALL", tester.getWordsSize());
                     intent.putExtra("MISTAKES" , (Serializable)tester.getMistakes());
@@ -117,10 +109,10 @@ public class TestSoftwareActivity extends AppCompatActivity {
             }
         });
 
-        exitFromTestSoftware.setOnClickListener(new View.OnClickListener() {
+        exitFromTestHardware.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TestSoftwareActivity.this, SoftwareActivity.class);
+                Intent intent = new Intent(TestHardwareActivity.this, HardwareActivity.class);
                 startActivity(intent);
             }
         });
@@ -129,7 +121,7 @@ public class TestSoftwareActivity extends AppCompatActivity {
 
     protected void setInitData(){
         WordList wl = new WordList();
-        wl.ForTestSoftware();
+        wl.ForTestHardware();
         words = wl.getWordList();
     }
 }

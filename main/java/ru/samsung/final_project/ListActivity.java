@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class ListActivity  extends AppCompatActivity {
 
     LinearLayout activity;
-    Button software, hardware, genverbs, internet;
+    Button software, hardware, genverbs, internet, backToMENU;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +22,7 @@ public class ListActivity  extends AppCompatActivity {
         internet = findViewById(R.id.internet);
         genverbs = findViewById(R.id.genverbs);
         activity = findViewById(R.id.linlaylist);
+        backToMENU = findViewById(R.id.exitFromListOfModuls);
 
         activity.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +59,14 @@ public class ListActivity  extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ListActivity.this, InternetActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        backToMENU.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ListActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });

@@ -1,7 +1,5 @@
 package ru.samsung.final_project;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -13,29 +11,29 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-public class LearnSoftwareActivity extends AppCompatActivity {
+public class LearnInternetActivity extends AppCompatActivity {
 
-    ListView listSoftware;
+    ListView listInternet;
     private List<Word> words = new ArrayList<>();
-    Button exitFromLearnSoftware;
+    Button exitFromLearnInternet;
     EditText searchWord;
     WordAdapter wordAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_learn_software);
+        setContentView(R.layout.activity_learn_internet);
         setInitData();
-        listSoftware = findViewById(R.id.listSoftware);
+        listInternet = findViewById(R.id.listInternet);
         wordAdapter = new WordAdapter(this, R.layout.list_item, words);
-        //listSoftware.setAdapter(wordAdapter);
-        exitFromLearnSoftware = findViewById(R.id.exitFromLearnSoftware);
-        searchWord = findViewById(R.id.SearchWordSoftware);
-        listSoftware.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        exitFromLearnInternet = findViewById(R.id.exitFromLearnInternet);
+        searchWord = findViewById(R.id.SearchWordInternet);
+        listInternet.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Word selectedWord = (Word)parent.getItemAtPosition(position);
@@ -43,10 +41,10 @@ public class LearnSoftwareActivity extends AppCompatActivity {
             }
         });
 
-        exitFromLearnSoftware.setOnClickListener(new View.OnClickListener() {
+        exitFromLearnInternet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LearnSoftwareActivity.this, SoftwareActivity.class);
+                Intent intent = new Intent(LearnInternetActivity.this, InternetActivity.class);
                 startActivity(intent);
             }
         });
@@ -74,12 +72,13 @@ public class LearnSoftwareActivity extends AppCompatActivity {
 
             }
         });
-        listSoftware.setAdapter(wordAdapter);
+        listInternet.setAdapter(wordAdapter);
     }
 
     void setInitData(){
         WordList wl = new WordList();
-        wl.ForLearnSoftware();
+        wl.ForLearnInternet();
         words = wl.getWordList();
     }
+
 }
