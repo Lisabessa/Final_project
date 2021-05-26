@@ -2,29 +2,49 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:baselineAligned="false"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonstart"
-        android:text="@string/start"
+        android:id="@+id/button_user_choice"
+        android:text="@string/user_choice"
         android:textSize="20sp"
-        android:layout_weight="2"
-        android:backgroundTint="@color/Col5"
-
+        android:layout_weight="1"
+        android:backgroundTint="@color/ColMAIN"
         />
 
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonexit"
-        android:text="@string/exit"
-        android:textSize="20sp"
-        android:layout_weight="2"
-        android:backgroundTint="@color/Col3"
-        />
+        android:orientation="horizontal"
+        android:baselineAligned="false">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonstart"
+            android:text="@string/start"
+            android:textSize="20sp"
+            android:layout_weight="2"
+            android:backgroundTint="@color/Col5"
+
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/buttonexit"
+            android:text="@string/exit"
+            android:textSize="20sp"
+            android:layout_weight="2"
+            android:backgroundTint="@color/Col3"
+            />
+
+    </LinearLayout>
+
+
 
 </LinearLayout>
