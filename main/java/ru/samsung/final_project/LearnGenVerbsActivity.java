@@ -17,6 +17,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LearnGenVerbsActivity extends AppCompatActivity {
+
+    long userId = 0; // ID текущего пользователя
+
     ListView listGenVerbs;
     private List<Word> words = new ArrayList<>();
     Button exitFromLearnGenVerbs;
@@ -28,6 +31,12 @@ public class LearnGenVerbsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learn_gen_verbs);
         setInitData();
+
+        Bundle extras = getIntent().getExtras();
+        if(extras.get("id") != null){
+            userId = extras.getLong("id");
+        }
+
         listGenVerbs = findViewById(R.id.listGenVerbs);
         wordAdapter = new WordAdapter(this, R.layout.list_item, words);
         exitFromLearnGenVerbs = findViewById(R.id.exitFromLearnGenVerbs);
@@ -44,6 +53,7 @@ public class LearnGenVerbsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LearnGenVerbsActivity.this, GenVerbsActivity.class);
+                intent.putExtra("id", userId); // id выбранного пользователя
                 startActivity(intent);
             }
         });

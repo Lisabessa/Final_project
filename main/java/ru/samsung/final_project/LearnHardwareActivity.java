@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LearnHardwareActivity extends AppCompatActivity {
+    long userId = 0; // ID текущего пользователя
     ListView listHardware;
     private List<Word> words = new ArrayList<>();
     Button exitFromLearnHardware;
@@ -28,6 +29,10 @@ public class LearnHardwareActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learn_hardware);
         setInitData();
+        Bundle extras = getIntent().getExtras();
+        if(extras.get("id") != null){
+            userId = extras.getLong("id");
+        }
         listHardware = findViewById(R.id.listHardware);
         wordAdapter = new WordAdapter(this, R.layout.list_item, words);
         exitFromLearnHardware = findViewById(R.id.exitFromLearnHardware);
@@ -44,6 +49,7 @@ public class LearnHardwareActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LearnHardwareActivity.this, HardwareActivity.class);
+                intent.putExtra("id", userId); // id выбранного пользователя
                 startActivity(intent);
             }
         });

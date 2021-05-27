@@ -105,7 +105,6 @@ public class RegisterUser extends Activity {
     }
 
     public void add(View view) {
-
         Intent intent = new Intent(getApplicationContext(), UserRedactor.class);
         startActivity(intent);
     }

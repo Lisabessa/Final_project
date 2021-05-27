@@ -22,6 +22,7 @@ import static ru.samsung.final_project.R.string.start;
 public class TestSoftwareActivity extends AppCompatActivity {
 
 
+    long userId = 0; // ID текущего пользователя
     Button btn1, btn2, btn3, btn4, exitFromTestSoftware;
     TextView num, question, wordQuestion;
 
@@ -32,6 +33,12 @@ public class TestSoftwareActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_software);
+
+        Bundle extras = getIntent().getExtras();
+        if(extras.get("id") != null){
+            userId = extras.getLong("id");
+        }
+
         exitFromTestSoftware = findViewById(R.id.exitFromTestSoftware);
         btn1 = findViewById(R.id.answer1Software);
         btn2 = findViewById(R.id.answer2Software);
@@ -50,6 +57,7 @@ public class TestSoftwareActivity extends AppCompatActivity {
             intent.putExtra("RESULT" ,tester.getPoints());
             intent.putExtra("AT_ALL", tester.getWordsSize());
             intent.putExtra("MISTAKES" , (Serializable)tester.getMistakes());
+            intent.putExtra("id", userId); // id выбранного пользователя
             startActivity(intent);
         }
 
@@ -64,6 +72,7 @@ public class TestSoftwareActivity extends AppCompatActivity {
                     intent.putExtra("RESULT" ,tester.getPoints());
                     intent.putExtra("AT_ALL", tester.getWordsSize());
                     intent.putExtra("MISTAKES" , (Serializable)tester.getMistakes());
+                    intent.putExtra("id", userId); // id выбранного пользователя
                     startActivity(intent);
                 }
             }
@@ -80,6 +89,7 @@ public class TestSoftwareActivity extends AppCompatActivity {
                     intent.putExtra("RESULT" ,tester.getPoints());
                     intent.putExtra("AT_ALL", tester.getWordsSize());
                     intent.putExtra("MISTAKES" , (Serializable)tester.getMistakes());
+                    intent.putExtra("id", userId); // id выбранного пользователя
                     startActivity(intent);
                 }
             }
@@ -96,6 +106,7 @@ public class TestSoftwareActivity extends AppCompatActivity {
                     intent.putExtra("RESULT" ,tester.getPoints());
                     intent.putExtra("AT_ALL", tester.getWordsSize());
                     intent.putExtra("MISTAKES" , (Serializable)tester.getMistakes());
+                    intent.putExtra("id", userId); // id выбранного пользователя
                     startActivity(intent);
                 }
             }
@@ -112,6 +123,7 @@ public class TestSoftwareActivity extends AppCompatActivity {
                     intent.putExtra("RESULT" ,tester.getPoints());
                     intent.putExtra("AT_ALL", tester.getWordsSize());
                     intent.putExtra("MISTAKES" , (Serializable)tester.getMistakes());
+                    intent.putExtra("id", userId); // id выбранного пользователя
                     startActivity(intent);
                 }
             }
@@ -121,6 +133,7 @@ public class TestSoftwareActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(TestSoftwareActivity.this, SoftwareActivity.class);
+                intent.putExtra("id", userId); // id выбранного пользователя
                 startActivity(intent);
             }
         });

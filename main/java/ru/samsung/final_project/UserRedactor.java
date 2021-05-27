@@ -19,6 +19,7 @@ public class UserRedactor extends Activity {
     SQLiteDatabase db;
     Cursor userCursor;
     long userId = 0;
+    float res_software = 0, res_hardware = 0, res_genverbs = 0,  res_internet = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +42,15 @@ public class UserRedactor extends Activity {
 
             userCursor.moveToFirst();
             name.setText(userCursor.getString(1));
+            res_software = userCursor.getFloat(2);
+            res_hardware = userCursor.getFloat(3);
+            res_genverbs = userCursor.getFloat(4);
+            res_internet = userCursor.getFloat(5);
 
         }
 
         if(extras == null || userId==0){
+            btn_save.setText(R.string.save);
             btn_delete.setVisibility(View.GONE);
             btn_choice.setVisibility(View.GONE);
         }
@@ -54,6 +60,10 @@ public class UserRedactor extends Activity {
             public void onClick(View v) {
                 ContentValues cv = new ContentValues();
                 cv.put(DatabaseHelper.COLUMN_NAME, name.getText().toString()); // заполнение полей
+                cv.put(DatabaseHelper.COLUMN_RES_SOFTWARE, res_software);
+                cv.put(DatabaseHelper.COLUMN_RES_HARDWARE, res_hardware);
+                cv.put(DatabaseHelper.COLUMN_RES_GENVERBS, res_genverbs);
+                cv.put(DatabaseHelper.COLUMN_RES_INTERNET, res_internet);
                 if(userId > 0){
                     db.update(DatabaseHelper.TABLE, cv, DatabaseHelper.COLUMN_ID + " = " + String.valueOf(userId), null);
                 }
@@ -79,6 +89,7 @@ public class UserRedactor extends Activity {
                 Intent intent = new Intent(UserRedactor.this, MainActivity.class);
                 intent.putExtra("id", userId); // id выбранного пользователя в main
                 startActivity(intent);
+
             }
         });
     }

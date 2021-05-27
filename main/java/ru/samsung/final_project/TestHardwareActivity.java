@@ -14,6 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TestHardwareActivity extends AppCompatActivity {
+
+    long userId = 0; // ID текущего пользователя
+
     Button btn1, btn2, btn3, btn4, exitFromTestHardware;
     TextView num, question, wordQuestion;
 
@@ -24,6 +27,12 @@ public class TestHardwareActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_hardware);
+
+        Bundle extras = getIntent().getExtras();
+        if(extras.get("id") != null){
+            userId = extras.getLong("id");
+        }
+
         exitFromTestHardware = findViewById(R.id.exitFromTestHardware);
         btn1 = findViewById(R.id.answer1Hardware);
         btn2 = findViewById(R.id.answer2Hardware);
@@ -42,6 +51,7 @@ public class TestHardwareActivity extends AppCompatActivity {
             intent.putExtra("RESULT" ,tester.getPoints());
             intent.putExtra("AT_ALL", tester.getWordsSize());
             intent.putExtra("MISTAKES" , (Serializable)tester.getMistakes());
+            intent.putExtra("id", userId); // id выбранного пользователя
             startActivity(intent);
         }
 
@@ -56,6 +66,7 @@ public class TestHardwareActivity extends AppCompatActivity {
                     intent.putExtra("RESULT" ,tester.getPoints());
                     intent.putExtra("AT_ALL", tester.getWordsSize());
                     intent.putExtra("MISTAKES" , (Serializable)tester.getMistakes());
+                    intent.putExtra("id", userId); // id выбранного пользователя
                     startActivity(intent);
                 }
             }
@@ -72,6 +83,7 @@ public class TestHardwareActivity extends AppCompatActivity {
                     intent.putExtra("RESULT" ,tester.getPoints());
                     intent.putExtra("AT_ALL", tester.getWordsSize());
                     intent.putExtra("MISTAKES" , (Serializable)tester.getMistakes());
+                    intent.putExtra("id", userId); // id выбранного пользователя
                     startActivity(intent);
                 }
             }
@@ -88,6 +100,7 @@ public class TestHardwareActivity extends AppCompatActivity {
                     intent.putExtra("RESULT" ,tester.getPoints());
                     intent.putExtra("AT_ALL", tester.getWordsSize());
                     intent.putExtra("MISTAKES" , (Serializable)tester.getMistakes());
+                    intent.putExtra("id", userId); // id выбранного пользователя
                     startActivity(intent);
                 }
             }
@@ -104,6 +117,7 @@ public class TestHardwareActivity extends AppCompatActivity {
                     intent.putExtra("RESULT" ,tester.getPoints());
                     intent.putExtra("AT_ALL", tester.getWordsSize());
                     intent.putExtra("MISTAKES" , (Serializable)tester.getMistakes());
+                    intent.putExtra("id", userId); // id выбранного пользователя
                     startActivity(intent);
                 }
             }
@@ -113,6 +127,7 @@ public class TestHardwareActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(TestHardwareActivity.this, HardwareActivity.class);
+                intent.putExtra("id", userId); // id выбранного пользователя
                 startActivity(intent);
             }
         });

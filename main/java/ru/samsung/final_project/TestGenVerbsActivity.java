@@ -15,6 +15,7 @@ import java.util.List;
 
 public class TestGenVerbsActivity extends AppCompatActivity {
 
+    long userId = 0; // ID текущего пользователя
     Button btn1, btn2, btn3, btn4, exitFromTestGenVerbs;
     TextView num, question, wordQuestion;
 
@@ -25,6 +26,12 @@ public class TestGenVerbsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_gen_verbs);
+
+        Bundle extras = getIntent().getExtras();
+        if(extras.get("id") != null){
+            userId = extras.getLong("id");
+        }
+
         exitFromTestGenVerbs = findViewById(R.id.exitFromTestGenVerbs);
         btn1 = findViewById(R.id.answer1GenVerbs);
         btn2 = findViewById(R.id.answer2GenVerbs);
@@ -43,6 +50,7 @@ public class TestGenVerbsActivity extends AppCompatActivity {
             intent.putExtra("RESULT" ,tester.getPoints());
             intent.putExtra("AT_ALL", tester.getWordsSize());
             intent.putExtra("MISTAKES" , (Serializable)tester.getMistakes());
+            intent.putExtra("id", userId); // id выбранного пользователя
             startActivity(intent);
         }
 
@@ -57,6 +65,7 @@ public class TestGenVerbsActivity extends AppCompatActivity {
                     intent.putExtra("RESULT" ,tester.getPoints());
                     intent.putExtra("AT_ALL", tester.getWordsSize());
                     intent.putExtra("MISTAKES" , (Serializable)tester.getMistakes());
+                    intent.putExtra("id", userId); // id выбранного пользователя
                     startActivity(intent);
                 }
             }
@@ -73,6 +82,7 @@ public class TestGenVerbsActivity extends AppCompatActivity {
                     intent.putExtra("RESULT" ,tester.getPoints());
                     intent.putExtra("AT_ALL", tester.getWordsSize());
                     intent.putExtra("MISTAKES" , (Serializable)tester.getMistakes());
+                    intent.putExtra("id", userId); // id выбранного пользователя
                     startActivity(intent);
                 }
             }
@@ -89,6 +99,7 @@ public class TestGenVerbsActivity extends AppCompatActivity {
                     intent.putExtra("RESULT" ,tester.getPoints());
                     intent.putExtra("AT_ALL", tester.getWordsSize());
                     intent.putExtra("MISTAKES" , (Serializable)tester.getMistakes());
+                    intent.putExtra("id", userId); // id выбранного пользователя
                     startActivity(intent);
                 }
             }
@@ -105,6 +116,7 @@ public class TestGenVerbsActivity extends AppCompatActivity {
                     intent.putExtra("RESULT" ,tester.getPoints());
                     intent.putExtra("AT_ALL", tester.getWordsSize());
                     intent.putExtra("MISTAKES" , (Serializable)tester.getMistakes());
+                    intent.putExtra("id", userId); // id выбранного пользователя
                     startActivity(intent);
                 }
             }
@@ -114,6 +126,7 @@ public class TestGenVerbsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(TestGenVerbsActivity.this, GenVerbsActivity.class);
+                intent.putExtra("id", userId); // id выбранного пользователя
                 startActivity(intent);
             }
         });

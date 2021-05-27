@@ -19,6 +19,7 @@ import java.util.List;
 
 public class LearnSoftwareActivity extends AppCompatActivity {
 
+    long userId = 0; // ID текущего пользователя
     ListView listSoftware;
     private List<Word> words = new ArrayList<>();
     Button exitFromLearnSoftware;
@@ -30,6 +31,10 @@ public class LearnSoftwareActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learn_software);
         setInitData();
+        Bundle extras = getIntent().getExtras();
+        if(extras.get("id") != null){
+            userId = extras.getLong("id");
+        }
         listSoftware = findViewById(R.id.listSoftware);
         wordAdapter = new WordAdapter(this, R.layout.list_item, words);
         //listSoftware.setAdapter(wordAdapter);
@@ -47,6 +52,7 @@ public class LearnSoftwareActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LearnSoftwareActivity.this, SoftwareActivity.class);
+                intent.putExtra("id", userId); // id выбранного пользователя
                 startActivity(intent);
             }
         });

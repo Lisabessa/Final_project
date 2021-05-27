@@ -19,10 +19,10 @@
     <string name="question1">Как переводится фраза?</string>
     <string name="question2">Выберите букву, которая должна стоять на месте пропуска?</string>
     <string name="question3">Правильно ли составлена пара?</string>
-    <string name="startTotalSoftware">Вы ещё не проходили тест по разделу Software!</string>
-    <string name="startTotalHardware">Вы ещё не проходили тест по разделу Hardware!</string>
-    <string name="startTotalGenVerbs">Вы ещё не проходили тест по разделу General Verbs!</string>
-    <string name="startTotalInternet">Вы ещё не проходили тест по разделу Internet!</string>
+    <string name="startTotalSoftware">Нет недавних результатов по разделу Software!</string>
+    <string name="startTotalHardware">Нет недавних результатов по разделу Hardware!</string>
+    <string name="startTotalGenVerbs">Нет недавних результатов по разделу General Verbs!</string>
+    <string name="startTotalInternet">Нет недавних результатов по разделу Internet!</string>
     <string name="AnswerNO">НЕТ</string>
     <string name="AnswerYES">ДА</string>
     <string name="backTo">Назад</string>
@@ -35,5 +35,8 @@
     <string name="InputName">Введите имя</string>
     <string name="save">Сохранить</string>
     <string name="delete">Удалить</string>
+    <string name="error1">Нет статистики</string>
+    <string name="UserExit">Выход из профиля</string>
+    <string name="UpdateUser">Обновить</string>
 
 </resources>

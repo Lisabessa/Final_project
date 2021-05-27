@@ -18,6 +18,8 @@ import java.util.List;
 
 public class LearnInternetActivity extends AppCompatActivity {
 
+    long userId = 0; // ID текущего пользователя
+
     ListView listInternet;
     private List<Word> words = new ArrayList<>();
     Button exitFromLearnInternet;
@@ -29,6 +31,10 @@ public class LearnInternetActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_learn_internet);
         setInitData();
+        Bundle extras = getIntent().getExtras();
+        if(extras.get("id") != null){
+            userId = extras.getLong("id");
+        }
         listInternet = findViewById(R.id.listInternet);
         wordAdapter = new WordAdapter(this, R.layout.list_item, words);
         exitFromLearnInternet = findViewById(R.id.exitFromLearnInternet);
@@ -45,6 +51,7 @@ public class LearnInternetActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LearnInternetActivity.this, InternetActivity.class);
+                intent.putExtra("id", userId); // id выбранного пользователя
                 startActivity(intent);
             }
         });

@@ -12,7 +12,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/info_about_app"
             android:minHeight="200dp"
-            android:text="@string/statistic"
+            android:text="@string/error1"
             android:textSize="30dp"
             android:textStyle="italic"
             />
@@ -70,7 +70,7 @@
                     android:elevation="6dp"
                     android:stateListAnimator="@null"
                     android:translationZ="4dp"
-                    android:text="@string/backTo"
+                    android:text="@string/UserExit"
                     android:background="@color/ColMAIN"/>
         </LinearLayout>
 

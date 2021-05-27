@@ -15,6 +15,8 @@ import java.util.List;
 
 public class TestInternetActivity extends AppCompatActivity {
 
+    long userId = 0; // ID текущего пользователя
+
     Button btn1, btn2, btn3, btn4, exitFromTestInternet;
     TextView num, question, wordQuestion;
 
@@ -25,6 +27,12 @@ public class TestInternetActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_internet);
+
+        Bundle extras = getIntent().getExtras();
+        if(extras.get("id") != null){
+            userId = extras.getLong("id");
+        }
+
         exitFromTestInternet = findViewById(R.id.exitFromTestInternet);
         btn1 = findViewById(R.id.answer1Internet);
         btn2 = findViewById(R.id.answer2Internet);
@@ -43,6 +51,7 @@ public class TestInternetActivity extends AppCompatActivity {
             intent.putExtra("RESULT" ,tester.getPoints());
             intent.putExtra("AT_ALL", tester.getWordsSize());
             intent.putExtra("MISTAKES" , (Serializable)tester.getMistakes());
+            intent.putExtra("id", userId); // id выбранного пользователя
             startActivity(intent);
         }
 
@@ -57,6 +66,7 @@ public class TestInternetActivity extends AppCompatActivity {
                     intent.putExtra("RESULT" ,tester.getPoints());
                     intent.putExtra("AT_ALL", tester.getWordsSize());
                     intent.putExtra("MISTAKES" , (Serializable)tester.getMistakes());
+                    intent.putExtra("id", userId); // id выбранного пользователя
                     startActivity(intent);
                 }
             }
@@ -73,6 +83,7 @@ public class TestInternetActivity extends AppCompatActivity {
                     intent.putExtra("RESULT" ,tester.getPoints());
                     intent.putExtra("AT_ALL", tester.getWordsSize());
                     intent.putExtra("MISTAKES" , (Serializable)tester.getMistakes());
+                    intent.putExtra("id", userId); // id выбранного пользователя
                     startActivity(intent);
                 }
             }
@@ -89,6 +100,7 @@ public class TestInternetActivity extends AppCompatActivity {
                     intent.putExtra("RESULT" ,tester.getPoints());
                     intent.putExtra("AT_ALL", tester.getWordsSize());
                     intent.putExtra("MISTAKES" , (Serializable)tester.getMistakes());
+                    intent.putExtra("id", userId); // id выбранного пользователя
                     startActivity(intent);
                 }
             }
@@ -105,6 +117,7 @@ public class TestInternetActivity extends AppCompatActivity {
                     intent.putExtra("RESULT" ,tester.getPoints());
                     intent.putExtra("AT_ALL", tester.getWordsSize());
                     intent.putExtra("MISTAKES" , (Serializable)tester.getMistakes());
+                    intent.putExtra("id", userId); // id выбранного пользователя
                     startActivity(intent);
                 }
             }
@@ -114,6 +127,7 @@ public class TestInternetActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(TestInternetActivity.this, InternetActivity.class);
+                intent.putExtra("id", userId); // id выбранного пользователя
                 startActivity(intent);
             }
         });
