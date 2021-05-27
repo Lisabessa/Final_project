@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ru.samsung.final_project">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".TestSoftwareActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LearnSoftwareActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".InternetActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".GenVerbsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HardwareActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SoftwareActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LearnHardwareActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".TestHardwareActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".LearnGenVerbsActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".TestGenVerbsActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".TestInternetActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".LearnInternetActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".RegisterUser"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".UserRedactor"
+            android:screenOrientation="portrait"/>
+    </application>
+
+</manifest>

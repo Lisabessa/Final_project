@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">HELPENG</string>
+    <string name="software">Software (программное обеспечение)</string>
+    <string name="hardware">Hardware (аппаратное обеспечение)</string>
+    <string name="general_verbs">General verbs (общие глаголы)</string>
+    <string name="internet">Internet (интернет)</string>
+    <string name="exit">Выйти</string>
+    <string name="start">Начать</string>
+    <string name="hint_modul">Вам нужно выбрать одно из направлений для вашего изучения.</string>
+    <string name="statistic">Hardware: 0% \nSoftware: 0% \nGeneral verbs: 0% \nInternet: 0%</string>
+    <string name="learn">Учить</string>
+    <string name="test">Тест</string>
+    <string name="software_analize">Ваши результаты:</string>
+    <string name="hardware_analize">Ваши результаты:</string>
+    <string name="genVerbs_analize">Ваши результаты:</string>
+    <string name="internet_analize">Ваши результаты:</string>
+    <string name="StartInstruction">Данное приложение разработано для книжной ориентации вашего телефона. Для изучения расположите своё устройство вертикально.</string>
+    <string name="QuestionNumber">Вопрос № </string>
+    <string name="question1">Как переводится фраза?</string>
+    <string name="question2">Выберите букву, которая должна стоять на месте пропуска?</string>
+    <string name="question3">Правильно ли составлена пара?</string>
+    <string name="startTotalSoftware">Нет недавних результатов по разделу Software!</string>
+    <string name="startTotalHardware">Нет недавних результатов по разделу Hardware!</string>
+    <string name="startTotalGenVerbs">Нет недавних результатов по разделу General Verbs!</string>
+    <string name="startTotalInternet">Нет недавних результатов по разделу Internet!</string>
+    <string name="AnswerNO">НЕТ</string>
+    <string name="AnswerYES">ДА</string>
+    <string name="backTo">Назад</string>
+    <string name="DictionaryToLearn">Словарик для изучения</string>
+    <string name="AnnotationToSearch">Введите нужное слово</string>
+    <string name="user_choice">Выбор пользователя</string>
+    <string name="AnnotationToSearchUser">Для быстрого поиска</string>
+    <string name="ListOfUsers">Выберите пользователя</string>
+    <string name="Add">Добавить</string>
+    <string name="InputName">Введите имя</string>
+    <string name="save">Сохранить</string>
+    <string name="delete">Удалить</string>
+    <string name="error1">Нет статистики</string>
+    <string name="UserExit">Выход из профиля</string>
+    <string name="UpdateUser">Обновить</string>
+
+</resources>

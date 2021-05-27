@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/textViewSearchUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ListOfUsers"
+            android:textStyle="italic"
+
+            android:background="@color/ColMAIN"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="28sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/SearchUser"
+            android:hint="@string/AnnotationToSearchUser"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="add"
+        android:backgroundTint="@color/Col4"
+        android:text="@string/Add" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listOfUsers"/>
+
+</LinearLayout>

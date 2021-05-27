@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/numOfQuestionHardware"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/QuestionNumber"
+            android:layout_weight="1"
+            android:background="@color/ColMAIN"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/exitFromTestHardware"
+            android:backgroundTint="@color/ColMAIN"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:text="@string/backTo" />
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/question1"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:id="@+id/questionHardware"/>
+
+    <TextView
+        android:id="@+id/wordForQuestionHardware"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="RABBIT"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="25sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/ColMAIN"
+            android:layout_weight="2"
+            android:minHeight="120sp"
+            android:id="@+id/answer1Hardware"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:minHeight="120sp"
+            android:backgroundTint="@color/ColMAIN"
+            android:id="@+id/answer2Hardware"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:minHeight="120sp"
+            android:backgroundTint="@color/ColMAIN"
+            android:id="@+id/answer3Hardware"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:minHeight="120sp"
+            android:backgroundTint="@color/ColMAIN"
+            android:id="@+id/answer4Hardware"
+            />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

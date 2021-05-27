@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/ColMAIN"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <fragment
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@+id/start_btn_fragment"
+            android:name="ru.samsung.final_project.Fragment_start_btn"
+            tools:layout="@layout/start_btn_fragment"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <fragment
+            android:id="@+id/start_image_fragment"
+            android:name="ru.samsung.final_project.Fragment_start_image"
+            android:layout_width="544dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            tools:layout="@layout/start_image_fragment" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textAlignment="textStart"
+            android:textSize="15sp"
+            android:textStyle="italic"
+            android:text="@string/StartInstruction"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

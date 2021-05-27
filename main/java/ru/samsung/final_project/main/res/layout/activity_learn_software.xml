@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="vertical"
+xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/textViewLearnSoftware"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/DictionaryToLearn"
+            android:textStyle="italic"
+            android:layout_weight="1"
+
+            android:background="@color/ColMAIN"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/SearchWordSoftware"
+            android:hint="@string/AnnotationToSearch"
+            />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/exitFromLearnSoftware"
+        android:backgroundTint="@color/ColMAIN"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:text="@string/backTo" />
+
+</LinearLayout>
+<ListView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/listSoftware"/>
+</LinearLayout>
