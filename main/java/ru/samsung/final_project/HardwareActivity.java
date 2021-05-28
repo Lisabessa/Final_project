@@ -126,4 +126,10 @@ public class HardwareActivity extends AppCompatActivity {
             }
         });
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        db.close();
+        userCursor.close();
+    }
 }

@@ -38,5 +38,9 @@
     <string name="error1">Нет статистики</string>
     <string name="UserExit">Выход из профиля</string>
     <string name="UpdateUser">Обновить</string>
+    <string name="defaultUser">Пользователь</string>
+    <string name="TRANSCRIPTION">Транскрипция</string>
+    <string name="TRANSLATE">Перевод</string>
+    <string name="NAME">Название</string>
 
 </resources>

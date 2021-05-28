@@ -6,14 +6,24 @@
     android:background="@color/ColMAIN"
     xmlns:android="http://schemas.android.com/apk/res/android" >
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/Username"
+            android:minHeight="50dp"
+            android:text="@string/defaultUser"
+            android:textSize="30dp"
+            android:background="@color/Col2"
+            android:textStyle="bold"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/info_about_app"
-            android:minHeight="200dp"
+            android:minHeight="150dp"
             android:text="@string/error1"
             android:textSize="30dp"
+            android:background="@color/Col4"
             android:textStyle="italic"
             />
 

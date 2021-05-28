@@ -12,7 +12,7 @@
         android:layout_weight="2"
         android:id="@+id/wordName"
         android:textColor="@android:color/black"
-        android:text = "Название"/>
+        android:text = "@string/NAME"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,13 +26,13 @@
             android:layout_margin="5dp"
             android:id="@+id/wordTranscriprion"
             android:background="@color/Col3"
-            android:text = "Транскрипция"/>
+            android:text = "@string/TRANSCRIPTION"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:id="@+id/wordTranslation"
-            android:text = "Перевод"/>
+            android:text = "@string/TRANSLATE"/>
 
     </LinearLayout>
 
